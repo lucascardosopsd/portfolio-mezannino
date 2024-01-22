@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center h-[10svh]">
       <Image
         alt="logo"
         src="/logo.svg"

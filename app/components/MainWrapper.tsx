@@ -10,7 +10,7 @@ interface MainWrapperProps {
 
 const MainWrapper = ({ title }: MainWrapperProps) => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center min-h-[90svh]">
       <p className="text-lg">{title.title}</p>
       <p className="text-6xl uppercase">{title.subTitle}</p>
       <p className="text-xl max-w-[700px] text-center">{title.description}</p>
