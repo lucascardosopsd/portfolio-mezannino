@@ -18,9 +18,14 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        mobile: "490px",
+        tablet: "1040px",
+        desktop: "1620px",
+      },
       colors: {
         red: {
-          default: "#ED183E",
+          DEFAULT: "#ED183E",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
