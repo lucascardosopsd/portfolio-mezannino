@@ -4,6 +4,11 @@ export default {
   title: "Profissionais",
   fields: [
     {
+      name: "order",
+      type: "number",
+      title: "Posição",
+    },
+    {
       name: "name",
       type: "string",
       title: "Nome",
