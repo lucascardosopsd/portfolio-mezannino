@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
@@ -14,22 +15,25 @@ const Navbar = () => {
         className="h-10 w-10"
       />
 
-      <div className="relative">
-        <Link href="#">
+      <div className="flex gap-2">
+        <div className="relative">
+          <Link href="#">
+            <Button
+              variant="outline"
+              className="border-red hover:bg-red hover:text-foreground"
+            >
+              Contato
+            </Button>
+          </Link>
+
           <Button
             variant="outline"
-            className="border-red hover:bg-red hover:text-foreground"
+            className="border-red bg-red text-transparent absolute m-0 inset-0 -z-10 animate-ping"
           >
             Contato
           </Button>
-        </Link>
-
-        <Button
-          variant="outline"
-          className="border-red bg-red text-transparent absolute m-0 inset-0 -z-10 animate-ping"
-        >
-          Contato
-        </Button>
+        </div>
+        <ThemeToggle />
       </div>
     </div>
   );
