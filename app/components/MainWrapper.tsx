@@ -31,11 +31,6 @@ const MainWrapper = ({ title, employees }: MainWrapperProps) => {
           height={0}
           className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
         />
-        <div className="flex flex-col items-center justify-center">
-          <p className="text-sm">{title.title}</p>
-          <p className="text-4xl uppercase">{title.subTitle}</p>
-          <p className="max-w-[600px] text-center">{title.description}</p>
-        </div>
 
         <Tabs defaultValue={navbarLinks[0].label} className="w-full">
           <TabsList className="flex flex-grow gap-2 bg-transparent">
@@ -57,8 +52,14 @@ const MainWrapper = ({ title, employees }: MainWrapperProps) => {
 
           <TabsContent
             value="home"
-            className="flex justify-center items-center"
+            className="flex flex-col justify-center items-center"
           >
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-sm">{title.title}</p>
+              <p className="text-4xl uppercase">{title.subTitle}</p>
+              <p className="max-w-[600px] text-center">{title.description}</p>
+            </div>
+
             <div className="flex gap-8 h-full">
               {employees.map((employee, index) => (
                 <div
