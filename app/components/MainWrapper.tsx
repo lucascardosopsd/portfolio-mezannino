@@ -1,6 +1,4 @@
 "use client";
-import { navbarLinks } from "@/constant/navbarLinks";
-import { Separator } from "./ui/separator";
 import Image from "next/image";
 import { EmployeeProps } from "@/types/employee";
 import { useTheme } from "next-themes";
@@ -12,6 +10,7 @@ import { ServiceProps } from "@/types/service";
 import ServicesTabContent from "./tabsContent/services";
 import { useState } from "react";
 import EmployeesTabContent from "./tabsContent/employees";
+import Tabs from "./Tabs";
 
 interface MainWrapperProps {
   title: TitleProps;
@@ -50,26 +49,7 @@ const MainWrapper = ({
         className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
       />
 
-      <div className="flex gap-2 bg-transparent">
-        {navbarLinks.map((link, index) => (
-          <span
-            className="flex"
-            key={index}
-            onClick={() => setCurrentMenu(link.label)}
-          >
-            <span
-              className={`font-normal cursor-default hover:text-red transition ${
-                currentMenu == link.label && "text-red"
-              }`}
-            >
-              {link.title}
-            </span>
-            {index < navbarLinks.length - 1 && (
-              <Separator orientation="vertical" className="ml-2 bg-muted" />
-            )}
-          </span>
-        ))}
-      </div>
+      <Tabs currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 
       {currentTabContent}
     </div>
