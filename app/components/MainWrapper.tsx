@@ -1,6 +1,10 @@
+"use client";
+
 import { navbarLinks } from "@/constant/navbarLinks";
 import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { Separator } from "./ui/separator";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 
 interface TitleProps {
   title: string;
@@ -13,8 +17,19 @@ interface MainWrapperProps {
 }
 
 const MainWrapper = ({ title }: MainWrapperProps) => {
+  const { theme } = useTheme();
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-[90svh] gap-4">
+    <div className="flex flex-col items-center justify-center min-h-[90svh] gap-4 relative">
+      <Image
+        alt="grid"
+        src={theme == "light" ? "/grid-light.svg" : "/grid-dark.svg"}
+        sizes="100vh"
+        width={0}
+        height={0}
+        className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
+      />
+
       <div className="flex flex-col items-center justify-center">
         <p className="text-lg">{title.title}</p>
         <p className="text-6xl uppercase">{title.subTitle}</p>
