@@ -14,11 +14,23 @@ const Navbar = () => {
         className="h-10 w-10"
       />
 
-      <Link href="#">
-        <Button variant="outline" className="border-red">
+      <div className="relative">
+        <Link href="#">
+          <Button
+            variant="outline"
+            className="border-red hover:bg-red hover:text-foreground"
+          >
+            Contato
+          </Button>
+        </Link>
+
+        <Button
+          variant="outline"
+          className="border-red bg-red text-transparent absolute m-0 inset-0 -z-10 animate-ping"
+        >
           Contato
         </Button>
-      </Link>
+      </div>
     </div>
   );
 };
