@@ -11,6 +11,7 @@ import PortfolioTabContent from "./tabsContent/Portfolio";
 import { ServiceProps } from "@/types/service";
 import ServicesTabContent from "./tabsContent/services";
 import { useState } from "react";
+import EmployeesTabContent from "./tabsContent/employees";
 
 interface MainWrapperProps {
   title: TitleProps;
@@ -26,8 +27,17 @@ const MainWrapper = ({
   services,
 }: MainWrapperProps) => {
   const { theme } = useTheme();
-
   const [currentMenu, setCurrentMenu] = useState("home");
+
+  const tabContents = {
+    home: <HomeTabContent employees={employees} title={title} />,
+    portfolio: <PortfolioTabContent portfolio={portfolio} />,
+    services: <ServicesTabContent services={services} />,
+    employees: <EmployeesTabContent employees={employees} />,
+  };
+
+  const currentTabContent =
+    tabContents[currentMenu as keyof typeof tabContents];
 
   return (
     <div className="flex items-center justify-center h-[92svh] min-h-[92svh] relative overflow-hidden flex-col">
@@ -61,15 +71,7 @@ const MainWrapper = ({
         ))}
       </div>
 
-      {currentMenu == "home" && (
-        <HomeTabContent employees={employees} title={title} />
-      )}
-
-      {currentMenu == "portfolio" && (
-        <PortfolioTabContent portfolio={portfolio} />
-      )}
-
-      {currentMenu == "services" && <ServicesTabContent services={services} />}
+      {currentTabContent}
     </div>
   );
 };

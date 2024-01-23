@@ -1,6 +1,6 @@
 export interface EmployeeProps {
   order: number;
   name: string;
-  subscription: string;
+  bio: string;
   pic: string;
 }

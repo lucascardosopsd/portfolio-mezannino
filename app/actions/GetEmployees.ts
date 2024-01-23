@@ -6,7 +6,7 @@ export const GetEmployees = async () => {
   *[_type == "employee"] {
     order,
     name,
-    descrition,
+    bio,
     "pic": pic.asset->url,
   }
   `;
