@@ -14,6 +14,11 @@ export default {
       title: "Título",
     },
     {
+      name: "pic",
+      type: "image",
+      title: "Foto",
+    },
+    {
       name: "description",
       type: "text",
       title: "Descrição",

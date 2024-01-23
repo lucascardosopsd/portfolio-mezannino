@@ -6,7 +6,8 @@ export const GetPortfolio = async () => {
     *[_type == "portfolio"]{
         order,
         title,
-        description
+        description,
+        "pic": pic.asset->url,
     }
     `;
 
