@@ -1,6 +1,5 @@
 "use client";
 import { navbarLinks } from "@/constant/navbarLinks";
-import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
 import { EmployeeProps } from "@/types/employee";
@@ -9,18 +8,29 @@ import { TitleProps } from "@/types/title";
 import { PortfolioProps } from "@/types/portfolio";
 import HomeTabContent from "./tabsContent/home";
 import PortfolioTabContent from "./tabsContent/Portfolio";
+import { ServiceProps } from "@/types/service";
+import ServicesTabContent from "./tabsContent/services";
+import { useState } from "react";
 
 interface MainWrapperProps {
   title: TitleProps;
   employees: EmployeeProps[];
   portfolio: PortfolioProps[];
+  services: ServiceProps[];
 }
 
-const MainWrapper = ({ title, employees, portfolio }: MainWrapperProps) => {
+const MainWrapper = ({
+  title,
+  employees,
+  portfolio,
+  services,
+}: MainWrapperProps) => {
   const { theme } = useTheme();
 
+  const [currentMenu, setCurrentMenu] = useState("home");
+
   return (
-    <div className="flex items-center justify-center h-[90svh] min-h-[90svh] relative overflow-hidden ">
+    <div className="flex items-center justify-center h-[92svh] min-h-[92svh] relative overflow-hidden flex-col">
       <Image
         alt="grid"
         src={theme == "light" ? "/grid-light.svg" : "/grid-dark.svg"}
@@ -30,27 +40,36 @@ const MainWrapper = ({ title, employees, portfolio }: MainWrapperProps) => {
         className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
       />
 
-      <Tabs defaultValue={navbarLinks[0].label} className="h-full pb-10">
-        <TabsList className="flex flex-grow gap-2 bg-transparent">
-          {navbarLinks.map((link, index) => (
-            <span className="flex" key={index}>
-              <TabsTrigger
-                value={link.label}
-                className="data-[state=active]:text-red"
-              >
-                {link.title}
-              </TabsTrigger>
-              {index < navbarLinks.length - 1 && (
-                <Separator orientation="vertical" />
-              )}
+      <div className="flex gap-2 bg-transparent">
+        {navbarLinks.map((link, index) => (
+          <span
+            className="flex"
+            key={index}
+            onClick={() => setCurrentMenu(link.label)}
+          >
+            <span
+              className={`font-normal cursor-default hover:text-red transition ${
+                currentMenu == link.label && "text-red"
+              }`}
+            >
+              {link.title}
             </span>
-          ))}
-        </TabsList>
+            {index < navbarLinks.length - 1 && (
+              <Separator orientation="vertical" className="ml-2 bg-muted" />
+            )}
+          </span>
+        ))}
+      </div>
 
+      {currentMenu == "home" && (
         <HomeTabContent employees={employees} title={title} />
+      )}
 
+      {currentMenu == "portfolio" && (
         <PortfolioTabContent portfolio={portfolio} />
-      </Tabs>
+      )}
+
+      {currentMenu == "services" && <ServicesTabContent services={services} />}
     </div>
   );
 };

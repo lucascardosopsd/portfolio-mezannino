@@ -1,5 +1,4 @@
 import { PortfolioProps } from "@/types/portfolio";
-import { TabsContent } from "../ui/tabs";
 import {
   Carousel,
   CarouselContent,
@@ -15,10 +14,7 @@ interface PortfolioTabContentProps {
 
 const PortfolioTabContent = ({ portfolio }: PortfolioTabContentProps) => {
   return (
-    <TabsContent
-      value="portfolio"
-      className="max-w-[900px] h-full flex items-center !m-0"
-    >
+    <div className="max-w-[900px] h-full flex items-center !m-0">
       <Carousel>
         <CarouselContent>
           {portfolio.map((project, index) => (
@@ -46,7 +42,7 @@ const PortfolioTabContent = ({ portfolio }: PortfolioTabContentProps) => {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
-    </TabsContent>
+    </div>
   );
 };
 

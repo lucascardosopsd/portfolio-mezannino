@@ -1,5 +1,4 @@
 import { EmployeeProps } from "@/types/employee";
-import { TabsContent } from "../ui/tabs";
 import { TitleProps } from "@/types/title";
 import Image from "next/image";
 
@@ -10,11 +9,8 @@ interface HomeTabContentProps {
 
 const HomeTabContent = ({ employees, title }: HomeTabContentProps) => {
   return (
-    <TabsContent
-      value="home"
-      className="flex flex-col justify-center items-center"
-    >
-      <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center h-full pt-4">
+      <div className="flex flex-col items-center justify-center mb-4">
         <p className="text-sm">{title.title}</p>
         <p className="text-4xl uppercase">{title.subTitle}</p>
         <p className="max-w-[600px] text-center">{title.description}</p>
@@ -45,7 +41,7 @@ const HomeTabContent = ({ employees, title }: HomeTabContentProps) => {
           </div>
         ))}
       </div>
-    </TabsContent>
+    </div>
   );
 };
 
