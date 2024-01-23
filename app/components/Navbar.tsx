@@ -5,7 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center h-[10svh]">
+    <div className="flex justify-between items-center h-[8svh]">
       <Image
         alt="logo"
         src="/logo.svg"
@@ -20,7 +20,8 @@ const Navbar = () => {
           <Link href="#">
             <Button
               variant="outline"
-              className="border-red hover:bg-red hover:text-foreground"
+              className="border-red hover:bg-red hover:text-foreground text-xs"
+              size="sm"
             >
               Contato
             </Button>
