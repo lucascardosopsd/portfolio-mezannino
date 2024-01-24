@@ -18,7 +18,7 @@ const HomeSection = ({ employees, title }: HomeTabContentProps) => {
 
   return (
     <section
-      className="flex flex-col justify-center items-center  overflow-y-auto relative !min-h-[92svh]"
+      className="flex flex-col justify-center items-center  overflow-y-auto relative !min-h-[92svh] pt-10 tablet:pt-0"
       id={id}
       ref={ref}
     >
