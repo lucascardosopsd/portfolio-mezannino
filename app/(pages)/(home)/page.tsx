@@ -11,6 +11,7 @@ import { GetClients } from "@/actions/GetClients";
 import ClientsSection from "@/components/sections/Clients";
 import { GetBusinessProfile } from "@/actions/GetBusinessProfile";
 import BusinessProfile from "@/components/sections/BusinessProfile";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
   const title = await GetTitle();
@@ -38,6 +39,8 @@ export default async function Home() {
       <Separator />
 
       <BusinessProfile businessProfile={businessProfile[0]} />
+
+      <Footer />
     </main>
   );
 }
