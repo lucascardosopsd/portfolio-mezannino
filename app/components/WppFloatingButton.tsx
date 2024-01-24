@@ -3,7 +3,7 @@ import { PiWhatsappLogoThin } from "react-icons/pi";
 
 const WppFloatingButton = () => {
   return (
-    <div className="absolute z-20 bottom-4 right-4">
+    <div className="fixed z-20 bottom-4 right-4">
       <Link
         href="https://api.whatsapp.com/send?phone=5517992777857"
         className="relative"
