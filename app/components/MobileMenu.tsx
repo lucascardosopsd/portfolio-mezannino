@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import NavLink from "./CustomLink";
 import { navbarLinks } from "@/constant/navbarLinks";
+import { ThemeToggle } from "./ThemeToggle";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,15 +29,14 @@ const MobileMenu = () => {
           isOpen ? "-translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex w-full items-center justify-end h-20 max-width border-b border-border">
-          <div className="flex items-center justify-center">
-            <button
-              className="text-grey-700 hover:text-purple transition-colors"
-              onClick={toggle}
-            >
-              <X size={36} />
-            </button>
-          </div>
+        <div className="flex w-full items-center justify-between h-20 max-width border-b border-border px-4">
+          <ThemeToggle />
+          <button
+            className="text-grey-700 hover:text-purple transition-colors"
+            onClick={toggle}
+          >
+            <X size={36} />
+          </button>
         </div>
 
         <nav className="flex flex-col items-center justify-center flex-1 gap-10">
@@ -46,7 +46,7 @@ const MobileMenu = () => {
                 <NavLink
                   href={link.url}
                   label={link.label}
-                  classname="text-3xl text-center"
+                  classname="text-xl text-center"
                 />
               </li>
             ))}
