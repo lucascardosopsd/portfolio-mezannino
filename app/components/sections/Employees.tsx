@@ -23,7 +23,7 @@ const EmployeesSection = ({ employees }: EmployeesTabContentProps) => {
       ref={ref}
     >
       <SectionHeading title="Profissionais" />
-      <div className="flex gap-4">
+      <div className="flex flex-col tablet:flex-row gap-4">
         {employees.map((employee, index) => (
           <>
             <div
