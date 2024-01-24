@@ -33,7 +33,7 @@ const Navbar = () => {
       <div
         className={`hidden tablet:flex w-full items-center transition ${
           fixedHeader
-            ? "fixed top-0 bg-background z-30"
+            ? "fixed top-0 left-0 bg-background z-30"
             : "static bg-transparent"
         }`}
         id="header"
