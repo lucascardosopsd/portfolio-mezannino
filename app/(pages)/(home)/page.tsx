@@ -7,12 +7,15 @@ import EmployeesSection from "@/components/sections/Employees";
 import HomeSection from "@/components/sections/Home";
 import ServicesSection from "@/components/sections/Services";
 import { Separator } from "@/components/ui/separator";
+import { GetClients } from "@/actions/GetClients";
+import ClientsSection from "@/components/sections/Clients";
 
 export default async function Home() {
   const title = await GetTitle();
   const employees = (await GetEmployees()).sort((a, b) => a.order - b.order);
   const portfolio = (await GetPortfolio()).sort((a, b) => a.order - b.order);
   const services = (await GetServices()).sort((a, b) => a.order - b.order);
+  const clients = (await GetClients()).sort((a, b) => a.order - b.order);
 
   return (
     <main className="overflow-x-hidden space-y-10">
@@ -27,6 +30,8 @@ export default async function Home() {
 
       <EmployeesSection employees={employees} />
       <Separator />
+
+      <ClientsSection clients={clients} />
     </main>
   );
 }
