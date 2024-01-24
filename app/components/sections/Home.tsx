@@ -24,15 +24,6 @@ const HomeSection = ({ employees, title }: HomeTabContentProps) => {
       id={id}
       ref={ref}
     >
-      <Image
-        alt="grid"
-        src={theme == "light" ? "/grid-light.svg" : "/grid-dark.svg"}
-        sizes="100vh"
-        width={0}
-        height={0}
-        className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
-      />
-
       <div className="flex flex-col items-center justify-center mb-4">
         <p className="text-sm">{title.title}</p>
         <p className="text-4xl uppercase">{title.subTitle}</p>
