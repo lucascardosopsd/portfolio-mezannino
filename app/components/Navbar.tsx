@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const Navbar = () => {
   const [fixedHeader, setFixedHeader] = useState(false);
@@ -41,14 +42,16 @@ const Navbar = () => {
           <nav className="flex items-center justify-center w-full gap-12 max-tablet:hidden">
             <ul className="flex items-center gap-8 text-lg">
               <li>
-                <Image
-                  src="/logo.svg"
-                  alt="logo"
-                  width={0}
-                  height={0}
-                  sizes="100vh"
-                  className="w-10 h-10"
-                />
+                <Link href="/">
+                  <Image
+                    src="/logo.svg"
+                    alt="logo"
+                    width={0}
+                    height={0}
+                    sizes="100vh"
+                    className="w-10 h-10"
+                  />
+                </Link>
               </li>
               {navbarLinks.map((link, index) => (
                 <li key={index}>
