@@ -75,7 +75,7 @@
   }
 
   section {
-    @apply min-h-[100svh] flex-col items-center justify-center mx-auto;
+    @apply min-h-[100svh] h-full flex-col items-center justify-center mx-auto;
   }
 }
 
