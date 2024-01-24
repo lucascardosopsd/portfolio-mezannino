@@ -60,12 +60,14 @@ const Navbar = () => {
               ))}
 
               <li className="flex">
-                <Button
-                  className="border rounded-r-none border-red bg-background text-foreground hover:bg-red hover:text-background"
-                  size="sm"
-                >
-                  Contato
-                </Button>
+                <Link href="https://api.whatsapp.com/send?phone=5517992777857">
+                  <Button
+                    className="border rounded-r-none border-red bg-background text-foreground hover:bg-red hover:text-background"
+                    size="sm"
+                  >
+                    Contato
+                  </Button>
+                </Link>
                 <ThemeToggle />
               </li>
             </ul>
