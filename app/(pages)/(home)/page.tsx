@@ -4,7 +4,7 @@ import { GetServices } from "@/actions/GetServices";
 import { GetTitle } from "@/actions/GetTitle";
 import PortfolioSection from "@/components/sections/Portfolio";
 import EmployeesSection from "@/components/sections/Employees";
-import HomeSection from "@/components/sections/Home";
+import HomeSection from "@/components/sections/Hero";
 import ServicesSection from "@/components/sections/Services";
 import { Separator } from "@/components/ui/separator";
 import { GetClients } from "@/actions/GetClients";

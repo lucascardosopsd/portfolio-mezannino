@@ -5,7 +5,7 @@ import { EmployeeProps } from "@/types/employee";
 import { TitleProps } from "@/types/title";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface HomeTabContentProps {
   employees: EmployeeProps[];
@@ -15,18 +15,34 @@ interface HomeTabContentProps {
 const HomeSection = ({ employees, title }: HomeTabContentProps) => {
   const id = "home";
   const { theme } = useTheme();
+  const [logo, setLogo] = useState("/logo-dark.png");
+
+  useEffect(() => {
+    if (theme == "light") {
+      return setLogo("/logo-light.png");
+    }
+
+    setLogo("/logo-dark.png");
+  }, [theme]);
+
   const ref = useRef(null);
   watchInView({ ref, id: id });
 
   return (
     <section
-      className="flex flex-col justify-center items-center h-full pt-[10svh] overflow-y-auto relative"
+      className="flex flex-col justify-center items-center  overflow-y-auto relative !min-h-[92svh]"
       id={id}
       ref={ref}
     >
       <div className="flex flex-col items-center justify-center mb-4">
-        <p className="text-sm">{title.title}</p>
-        <p className="text-4xl uppercase">{title.subTitle}</p>
+        <Image
+          alt="logo"
+          src={logo}
+          sizes="1000px"
+          height={0}
+          width={0}
+          className="w-full max-w-[300px] h-auto"
+        />
         <p className="max-w-[600px] text-center">{title.description}</p>
       </div>
 
