@@ -18,14 +18,17 @@ const EmployeesSection = ({ employees }: EmployeesTabContentProps) => {
 
   return (
     <section
-      className="flex h-full w-full max-w-[1000px] items-center justify-center"
+      className="flex h-full w-full max-w-[800px] items-center justify-center"
       id={id}
       ref={ref}
     >
       <SectionHeading title="Profissionais" />
-      <div className="flex flex-col tablet:flex-row gap-4">
+      <div className="flex flex-col gap-4">
         {employees.map((employee, index) => (
-          <span className="flex flex-col tablet:flex-row gap-4" key={index}>
+          <span
+            className="flex flex-col mobile:flex-row items-center gap-4"
+            key={index}
+          >
             <div className="flex-1 relative w-full h-full bg-background">
               <Image
                 alt="Funcionário"
@@ -33,13 +36,13 @@ const EmployeesSection = ({ employees }: EmployeesTabContentProps) => {
                 sizes="100vh"
                 width={0}
                 height={0}
-                className="object-cover h-[400px] w-full border rounded border-red"
+                className="object-cover h-full w-full border rounded border-red"
               />
             </div>
 
-            <div className="flex-1">
+            <div className="flex-1 tablet:flex-[2]">
               <p className="text-red text-lg">{employee.name}</p>
-              <p className="text-xs">{employee.bio}</p>
+              <p className="text-sm tablet:text-base">{employee.bio}</p>
             </div>
           </span>
         ))}
