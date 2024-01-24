@@ -60,11 +60,11 @@ const HomeSection = ({ employees, title }: HomeTabContentProps) => {
               className="object-cover h-full w-full"
             />
 
-            <div className="absolute flex items-end justify-center text-xl pb-5 bottom-0 left-0 h-[200px] w-full bg-gradient-to-t from-black to-transparent z-10">
+            <div className="absolute flex items-end justify-center text-xl pb-5 bottom-0 left-0 h-[200px] w-full bg-gradient-to-t from-white dark:from-black to-transparent z-10 dark:text-zinc-950 text-red">
               {employee.name}
             </div>
 
-            <div className="h-full w-full -z-10 bg-gradient-to-t absolute left-0 top-0 from-red from-30% to-transparent opacity-60" />
+            <div className="h-full w-full -z-10 bg-gradient-to-t absolute left-0 top-0 from-white dark:from-red from-30% to-transparent opacity-60" />
           </div>
         ))}
       </div>
