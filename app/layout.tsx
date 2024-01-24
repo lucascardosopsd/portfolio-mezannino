@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     siteName: "MEZANNINO | Engenharia",
     images: [
       {
-        url: "http://localhost:3000/logo.svg",
+        url: "/open-graph.svg",
         width: 800,
         height: 600,
       },
       {
-        url: "http://localhost:3000/logo.svg",
+        url: "/open-graph.svg",
         width: 1800,
         height: 1600,
         alt: "MEZANNINO Engenharia",
