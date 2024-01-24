@@ -2,7 +2,7 @@
 # Portfolio Mezannino Engenharia
 
 Landing page desenvolvida para servir de portfolio pessoal para uma profissional de estética e massoterapia
-![enter image description here](https://i.imgur.com/ExXU6UC.png)
+![enter image description here](https://i.imgur.com/PapV3QQ.png)
 
 ## 🗄️Hosting
 https://www.mezanninoengenharia.com.br
