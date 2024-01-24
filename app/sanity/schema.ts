@@ -3,7 +3,8 @@ import title from "./schemas/title";
 import employee from "./schemas/employee";
 import portfolio from "./schemas/portfolio";
 import service from "./schemas/service";
+import clients from "./schemas/clients";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [title, employee, portfolio, service],
+  types: [title, employee, portfolio, service, clients],
 };
