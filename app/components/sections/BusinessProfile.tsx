@@ -22,20 +22,24 @@ const BusinessProfile = ({ businessProfile }: AboutProps) => {
 
   return (
     <section
-      className="flex h-full w-full max-w-[800px] items-center justify-center pb-20"
+      className="flex h-full w-full max-w-[800px] items-center justify-center pb-10"
       id={id}
       ref={ref}
     >
       <SectionHeading title="Sobre" />
 
-      <div className="flex gap-2 bg-background rounded border border-red p-8">
+      <div className="flex flex-col tablet:flex-row gap-2 bg-background rounded border border-red p-8">
         <div className="flex flex-col relative flex-1">
           <Separator
             orientation="vertical"
-            className="absolute -left-5 top-0 bg-red"
+            className="absolute -left-5 top-0 bg-red hidden tablet:block"
           />
-          <p className="text-xl text-red">Nossa História</p>
-          <p>{businessProfile.history}</p>
+          <p className="text-xl text-red text-center tablet:text-start">
+            Nossa História
+          </p>
+          <p className="text-justify text-pretty tablet:text-start">
+            {businessProfile.history}
+          </p>
         </div>
         <div className="flex flex-col gap-2 flex-1 border border-border">
           <div className="w-full h-60 rounded">
