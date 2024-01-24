@@ -1,3 +1,5 @@
+"use client";
+
 import { ServiceProps } from "@/types/service";
 import {
   Carousel,
@@ -7,14 +9,27 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import Image from "next/image";
+import { watchInView } from "@/lib/watchInView";
+import { useRef } from "react";
+import SectionHeading from "../SectionHeading";
 
 interface ServicesTabContentProps {
   services: ServiceProps[];
 }
 
-const ServicesTabContent = ({ services }: ServicesTabContentProps) => {
+const ServicesSection = ({ services }: ServicesTabContentProps) => {
+  const ref = useRef(null);
+  const id = "services";
+  watchInView({ ref, id });
+
   return (
-    <div className="max-w-[900px] h-full flex items-center !m-0 ">
+    <section
+      className="max-w-[900px] h-full flex items-center justify-center"
+      id={id}
+      ref={ref}
+    >
+      <SectionHeading title="Serviços" />
+
       <Carousel className="flex items-center w-full h-full">
         <CarouselContent className="gap-4 p-2 h-full">
           {services.map((service, index) => (
@@ -42,8 +57,8 @@ const ServicesTabContent = ({ services }: ServicesTabContentProps) => {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
-    </div>
+    </section>
   );
 };
 
-export default ServicesTabContent;
+export default ServicesSection;

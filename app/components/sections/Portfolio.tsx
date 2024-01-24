@@ -1,3 +1,5 @@
+"use client";
+
 import { PortfolioProps } from "@/types/portfolio";
 import {
   Carousel,
@@ -7,14 +9,28 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import Image from "next/image";
+import { watchInView } from "@/lib/watchInView";
+import { useRef } from "react";
+import SectionHeading from "../SectionHeading";
 
 interface PortfolioTabContentProps {
   portfolio: PortfolioProps[];
 }
 
-const PortfolioTabContent = ({ portfolio }: PortfolioTabContentProps) => {
+const PortfolioSection = ({ portfolio }: PortfolioTabContentProps) => {
+  const id = "portfolio";
+
+  const ref = useRef(null);
+  watchInView({ ref, id });
+
   return (
-    <div className="max-w-[900px] h-full flex items-center !m-0">
+    <section
+      className="max-w-[900px] h-full flex items-center justify-center"
+      id={id}
+      ref={ref}
+    >
+      <SectionHeading title="Projetos" />
+
       <Carousel>
         <CarouselContent>
           {portfolio.map((project, index) => (
@@ -42,8 +58,8 @@ const PortfolioTabContent = ({ portfolio }: PortfolioTabContentProps) => {
         <CarouselNext />
         <CarouselPrevious />
       </Carousel>
-    </div>
+    </section>
   );
 };
 
-export default PortfolioTabContent;
+export default PortfolioSection;

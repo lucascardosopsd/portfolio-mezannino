@@ -1,13 +1,28 @@
+"use client";
+
+import { watchInView } from "@/lib/watchInView";
 import { EmployeeProps } from "@/types/employee";
 import Image from "next/image";
+import { useRef } from "react";
+import SectionHeading from "../SectionHeading";
 
 interface EmployeesTabContentProps {
   employees: EmployeeProps[];
 }
 
-const EmployeesTabContent = ({ employees }: EmployeesTabContentProps) => {
+const EmployeesSection = ({ employees }: EmployeesTabContentProps) => {
+  const id = "employees";
+
+  const ref = useRef(null);
+  watchInView({ ref, id });
+
   return (
-    <div className="flex h-full w-full max-w-[1000px] items-center justify-center">
+    <section
+      className="flex h-full w-full max-w-[1000px] items-center justify-center"
+      id={id}
+      ref={ref}
+    >
+      <SectionHeading title="Profissionais" />
       <div className="flex gap-4">
         {employees.map((employee, index) => (
           <>
@@ -32,8 +47,8 @@ const EmployeesTabContent = ({ employees }: EmployeesTabContentProps) => {
           </>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default EmployeesTabContent;
+export default EmployeesSection;

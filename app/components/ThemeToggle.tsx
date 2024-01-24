@@ -18,7 +18,7 @@ export function ThemeToggle() {
 
   return (
     <Tabs defaultValue={theme}>
-      <TabsList className="border rounded bg-background border-red h-9">
+      <TabsList className="border rounded-l-none border-l-0 bg-background border-red h-9">
         <TabsTrigger
           value="light"
           onClick={() => setTheme("light")}

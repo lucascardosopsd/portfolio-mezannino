@@ -73,6 +73,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  section {
+    @apply min-h-[100svh] flex-col items-center justify-center mx-auto;
+  }
 }
 
 @keyframes ping {

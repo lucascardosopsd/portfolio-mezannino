@@ -2,7 +2,10 @@ import { GetEmployees } from "@/actions/GetEmployees";
 import { GetPortfolio } from "@/actions/GetPortfolio";
 import { GetServices } from "@/actions/GetServices";
 import { GetTitle } from "@/actions/GetTitle";
-import MainWrapper from "@/components/MainWrapper";
+import PortfolioSection from "@/components/sections/Portfolio";
+import EmployeesSection from "@/components/sections/Employees";
+import HomeSection from "@/components/sections/Home";
+import ServicesSection from "@/components/sections/Services";
 
 export default async function Home() {
   const title = await GetTitle();
@@ -11,13 +14,11 @@ export default async function Home() {
   const services = (await GetServices()).sort((a, b) => a.order - b.order);
 
   return (
-    <main className="relative">
-      <MainWrapper
-        title={title[0]}
-        employees={employees}
-        portfolio={portfolio}
-        services={services}
-      />
+    <main className="overflow-x-hidden">
+      <HomeSection employees={employees} title={title[0]} />,
+      <PortfolioSection portfolio={portfolio} />,
+      <ServicesSection services={services} />,
+      <EmployeesSection employees={employees} />
     </main>
   );
 }

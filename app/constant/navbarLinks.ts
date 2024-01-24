@@ -1,26 +1,26 @@
 export const navbarLinks = [
   {
-    label: "home",
-    title: "Início",
+    label: "Início",
+    url: "#home",
   },
   {
-    label: "portfolio",
-    title: "Projetos",
+    label: "Projetos",
+    url: "#portfolio",
   },
   {
-    label: "services",
-    title: "Serviços",
+    label: "Serviços",
+    url: "#services",
   },
   {
-    label: "employees",
-    title: "Profissionais",
+    label: "Profissionais",
+    url: "#employees",
   },
   {
-    label: "clients",
-    title: "Clientes",
+    label: "Clientes",
+    url: "#clients",
   },
   {
-    label: "about",
-    title: "Sobre",
+    label: "Sobre",
+    url: "#about",
   },
 ];

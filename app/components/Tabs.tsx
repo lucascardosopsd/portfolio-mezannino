@@ -8,7 +8,7 @@ interface TabsProps {
 
 const Tabs = ({ currentMenu, setCurrentMenu }: TabsProps) => {
   return (
-    <div className="gap-2 p-4 tablet:p-0 absolute tablet:static bottom-0 left-0 overflow-x-auto w-full flex justify-center z-20 bg-background tablet:bg-transparent">
+    <div className="gap-2 static bottom-0 left-0 w-full flex justify-center">
       {navbarLinks.map((link, index) => (
         <span
           className="flex"

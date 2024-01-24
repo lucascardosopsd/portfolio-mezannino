@@ -1,22 +1,45 @@
+"use client";
+
+import { watchInView } from "@/lib/watchInView";
 import { EmployeeProps } from "@/types/employee";
 import { TitleProps } from "@/types/title";
+import { useTheme } from "next-themes";
 import Image from "next/image";
+import { useRef } from "react";
 
 interface HomeTabContentProps {
   employees: EmployeeProps[];
   title: TitleProps;
 }
 
-const HomeTabContent = ({ employees, title }: HomeTabContentProps) => {
+const HomeSection = ({ employees, title }: HomeTabContentProps) => {
+  const id = "home";
+  const { theme } = useTheme();
+  const ref = useRef(null);
+  watchInView({ ref, id: id });
+
   return (
-    <div className="flex flex-col justify-center items-center h-full pt-4">
+    <section
+      className="flex flex-col justify-center items-center h-full pt-[10svh] overflow-y-auto relative"
+      id={id}
+      ref={ref}
+    >
+      <Image
+        alt="grid"
+        src={theme == "light" ? "/grid-light.svg" : "/grid-dark.svg"}
+        sizes="100vh"
+        width={0}
+        height={0}
+        className="absolute h-full w-auto -z-10 m-auto bottom-0 top-0 right-0 left-0 animate-pulse"
+      />
+
       <div className="flex flex-col items-center justify-center mb-4">
         <p className="text-sm">{title.title}</p>
         <p className="text-4xl uppercase">{title.subTitle}</p>
         <p className="max-w-[600px] text-center">{title.description}</p>
       </div>
 
-      <div className="flex gap-8 h-full">
+      <div className="flex flex-col tablet:flex-row gap-8 h-full">
         {employees.map((employee, index) => (
           <div
             className={`relative h-[60svh] w-[300px] border border-red ${
@@ -41,8 +64,8 @@ const HomeTabContent = ({ employees, title }: HomeTabContentProps) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HomeTabContent;
+export default HomeSection;
