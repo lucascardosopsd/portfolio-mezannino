@@ -25,11 +25,8 @@ const EmployeesSection = ({ employees }: EmployeesTabContentProps) => {
       <SectionHeading title="Profissionais" />
       <div className="flex flex-col tablet:flex-row gap-4">
         {employees.map((employee, index) => (
-          <span className="flex flex-col tablet:flex-row gap-4">
-            <div
-              className="flex-1 relative w-full h-full bg-background"
-              key={index}
-            >
+          <span className="flex flex-col tablet:flex-row gap-4" key={index}>
+            <div className="flex-1 relative w-full h-full bg-background">
               <Image
                 alt="Funcionário"
                 src={employee.pic}
