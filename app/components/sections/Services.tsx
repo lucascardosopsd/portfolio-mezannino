@@ -30,12 +30,12 @@ const ServicesSection = ({ services }: ServicesTabContentProps) => {
     >
       <SectionHeading title="Serviços" />
 
-      <Carousel className="flex items-center w-full h-full">
-        <CarouselContent className="gap-4 p-2 h-full">
+      <Carousel className="w-full h-full">
+        <CarouselContent className="gap-4 h-full">
           {services.map((service, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/4 h-[350px] relative rounded flex items-end justify-center"
+              className="tablet:basis-1/4 h-[350px] relative rounded flex items-end justify-center"
             >
               <div className="h-1/4 text-center flex items-center p-2">
                 {service.title}
@@ -54,8 +54,8 @@ const ServicesSection = ({ services }: ServicesTabContentProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext />
-        <CarouselPrevious />
+        <CarouselNext className="right-0" />
+        <CarouselPrevious className="left-0" />
       </Carousel>
     </section>
   );
