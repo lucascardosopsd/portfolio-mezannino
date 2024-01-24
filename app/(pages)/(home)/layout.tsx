@@ -1,15 +1,15 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { useTheme } from "next-themes";
+import WppFloatButton from "@/components/WppFloatingButton";
 import Image from "next/image";
 import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const { theme } = useTheme();
-
   return (
     <div className="container">
+      <WppFloatButton />
+
       <Image
         alt="grid"
         src="/grid-dark.svg"
