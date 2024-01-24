@@ -6,6 +6,7 @@ import PortfolioSection from "@/components/sections/Portfolio";
 import EmployeesSection from "@/components/sections/Employees";
 import HomeSection from "@/components/sections/Home";
 import ServicesSection from "@/components/sections/Services";
+import { Separator } from "@/components/ui/separator";
 
 export default async function Home() {
   const title = await GetTitle();
@@ -14,11 +15,18 @@ export default async function Home() {
   const services = (await GetServices()).sort((a, b) => a.order - b.order);
 
   return (
-    <main className="overflow-x-hidden">
-      <HomeSection employees={employees} title={title[0]} />,
-      <PortfolioSection portfolio={portfolio} />,
-      <ServicesSection services={services} />,
+    <main className="overflow-x-hidden space-y-10">
+      <HomeSection employees={employees} title={title[0]} />
+      <Separator />
+
+      <PortfolioSection portfolio={portfolio} />
+      <Separator />
+
+      <ServicesSection services={services} />
+      <Separator />
+
       <EmployeesSection employees={employees} />
+      <Separator />
     </main>
   );
 }
