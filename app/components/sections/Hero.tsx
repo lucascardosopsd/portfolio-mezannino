@@ -1,11 +1,9 @@
 "use client";
-
 import { watchInView } from "@/lib/watchInView";
 import { EmployeeProps } from "@/types/employee";
 import { TitleProps } from "@/types/title";
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 interface HomeTabContentProps {
   employees: EmployeeProps[];
@@ -14,16 +12,6 @@ interface HomeTabContentProps {
 
 const HomeSection = ({ employees, title }: HomeTabContentProps) => {
   const id = "home";
-  const { theme } = useTheme();
-  const [logo, setLogo] = useState("/logo-dark.png");
-
-  useEffect(() => {
-    if (theme == "light") {
-      return setLogo("/logo-light.png");
-    }
-
-    setLogo("/logo-dark.png");
-  }, [theme]);
 
   const ref = useRef(null);
   watchInView({ ref, id: id });
@@ -37,11 +25,20 @@ const HomeSection = ({ employees, title }: HomeTabContentProps) => {
       <div className="flex flex-col items-center justify-center mb-4">
         <Image
           alt="logo"
-          src={logo}
+          src="/logo-dark.png"
           sizes="1000px"
           height={0}
           width={0}
-          className="w-full max-w-[300px] h-auto"
+          className="w-full max-w-[300px] h-auto hidden dark:block"
+        />
+
+        <Image
+          alt="logo"
+          src="/logo-light.png"
+          sizes="1000px"
+          height={0}
+          width={0}
+          className="w-full max-w-[300px] h-auto block dark:hidden"
         />
         <p className="max-w-[600px] text-center">{title.description}</p>
       </div>
