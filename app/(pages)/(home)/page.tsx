@@ -9,6 +9,8 @@ import ServicesSection from "@/components/sections/Services";
 import { Separator } from "@/components/ui/separator";
 import { GetClients } from "@/actions/GetClients";
 import ClientsSection from "@/components/sections/Clients";
+import { GetBusinessProfile } from "@/actions/GetBusinessProfile";
+import BusinessProfile from "@/components/sections/BusinessProfile";
 
 export default async function Home() {
   const title = await GetTitle();
@@ -16,6 +18,7 @@ export default async function Home() {
   const portfolio = (await GetPortfolio()).sort((a, b) => a.order - b.order);
   const services = (await GetServices()).sort((a, b) => a.order - b.order);
   const clients = (await GetClients()).sort((a, b) => a.order - b.order);
+  const businessProfile = await GetBusinessProfile();
 
   return (
     <main className="overflow-x-hidden space-y-10">
@@ -32,6 +35,9 @@ export default async function Home() {
       <Separator />
 
       <ClientsSection clients={clients} />
+      <Separator />
+
+      <BusinessProfile businessProfile={businessProfile[0]} />
     </main>
   );
 }
