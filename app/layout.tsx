@@ -10,9 +10,28 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "MEZANNINO | Engenharia",
-  description:
-    "Projetos para financiamento habitacional, construção e regularização de imóveis.",
+  openGraph: {
+    title: "MEZANNINO | Engenharia",
+    description:
+      "Nosso princípio é atender a população com qualidade e eficiência, trazendo o que há de melhor no mercado.",
+    url: "https://mezanninoengenharia.vercel.app/",
+    siteName: "MEZANNINO | Engenharia",
+    images: [
+      {
+        url: "http://localhost:3000/logo.svg",
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "http://localhost:3000/logo.svg",
+        width: 1800,
+        height: 1600,
+        alt: "MEZANNINO Engenharia",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
