@@ -37,11 +37,11 @@ const ServicesSection = ({ services }: ServicesTabContentProps) => {
               key={index}
               className="tablet:basis-1/4 h-[350px] relative rounded flex items-end justify-center"
             >
-              <div className="h-1/4 text-center flex items-center p-2">
+              <div className="h-1/4 text-center flex items-center p-2 text-zinc-700 font-semibold dark:font-light dark:text-white">
                 {service.title}
               </div>
 
-              <div className="w-full h-1/4 bg-gradient-to-t from-black to-transparent absolute bottom-0 left-0 -z-10"></div>
+              <div className="w-full h-1/3 bg-gradient-to-t from-white dark:from-black to-transparent absolute bottom-0 left-0 -z-10"></div>
 
               <Image
                 alt="Imagem"
