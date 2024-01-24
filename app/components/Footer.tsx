@@ -2,11 +2,12 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="py-10 border-t border-border max-width bg-background">
-      {/* Contact Details */}
-      <p className="text-center mt-2 text-sm">
-        Copyright © {new Date().getFullYear()}
+    <footer className="py-10 border-t border-border max-width bg-background space-y-2">
+      <p className="text-center">
+        Bs Ferracini, Engenharia e Construcao LTDA | CNPJ: 49.795.935/0001-09
       </p>
+
+      <p className="text-center">Copyright © {new Date().getFullYear()}</p>
 
       <Link
         href="https://lucascardoso.vercel.app/"
