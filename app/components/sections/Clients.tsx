@@ -29,7 +29,7 @@ const ClientsSection = ({ clients }: ClientsSectionProps) => {
             <CardContent>
               <div className="flex flex-col">
                 <p className="text-red text-xl">{client.name}</p>
-                <p className="line-clamp-6">{client.comment}</p>
+                <p>{client.comment}</p>
                 <p className="text-muted">{client.social}</p>
               </div>
             </CardContent>
