@@ -35,7 +35,7 @@ const ClientsSection = ({ clients }: ClientsSectionProps) => {
                   </p>
                   <p>{client.comment}</p>
                 </div>
-                <p className="text-muted">{client.social}</p>
+                <p className="text-muted-foreground">{client.social}</p>
               </div>
             </CardContent>
           </Card>
